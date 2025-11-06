@@ -1,26 +1,69 @@
-import { View, Text, Animated } from 'react-native'
-import React, { useEffect, useRef } from 'react'
+// src/screens/SplashScreen.tsx
+import { StackScreenProps } from '@react-navigation/stack';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, Animated, Easing } from 'react-native';
 
 
-const SplashScreen = () => {
-    const fadeAnim = useRef(new Animated.Value(0)).current;
+const SplashScreen = ({ navigation }: any) => {
+    const scaleAnim = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
-        Animated.timing(fadeAnim, {
+        Animated.timing(scaleAnim, {
             toValue: 1,
             duration: 1500,
-            useNativeDriver: true
+            easing: Easing.elastic(1),
+            useNativeDriver: true,
         }).start(() => {
             setTimeout(() => {
-                // navigation.replace("Home");
-            }, 1000);
-        })
-    }, [fadeAnim]);
-    return (
-        <View>
-            <Text>SplashScreen</Text>
-        </View>
-    )
-}
+                navigation.replace('LoginScreen');
+            }, 500);
+        });
+    }, [scaleAnim, navigation]);
 
-export default SplashScreen
+    return (
+        <View style={styles.container}>
+            <Animated.View
+                style={[
+                    styles.circle,
+                    {
+                        transform: [{ scale: scaleAnim }],
+                    },
+                ]}
+            >
+                <Text style={styles.logoText}>Healthcare</Text>
+            </Animated.View>
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF',
+    },
+    circle: {
+        width: 200,
+        height: 200,
+        borderRadius: 100,
+        backgroundColor: '#66B2FF',
+        justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    logoText: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#FFFFFF',
+    },
+});
+
+export default SplashScreen;
