@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleProp, TextStyle, ViewStyle, ActivityIndicator } from 'react-native';
+import { StyleProp, TextStyle, ViewStyle, ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 
-import { ScaledSheet, Colors, Outlines, Typography } from '@app/styles';
+import { Colors, Outlines, Typography } from '@app/styles';
 
 
 type Props = {
@@ -49,7 +49,7 @@ const Button = ({
     ...rest
 }: Props) => {
     return (
-        <TouchableItem
+        <Pressable
             {...rest}
             style={[
                 styles.container,
@@ -59,7 +59,6 @@ const Button = ({
                 type === 'secondary' && styles.secondaryStyle,
                 disabled && styles.disableStyle,
             ]}
-            clickDisable={loading || disabled}
             disabled={loading || disabled}>
             <>
                 {(() => {
@@ -92,17 +91,15 @@ const Button = ({
                     );
                 })()}
             </>
-        </TouchableItem>
+        </Pressable>
     );
 };
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
     container: {
-        height: '45@ms',
         justifyContent: 'center',
         alignItems: 'center',
         overflow: 'hidden',
-        borderRadius: Outlines.borderRadius.base,
         backgroundColor: Colors.secondary.brand,
         ...Outlines.shadow.base,
     },
@@ -123,7 +120,6 @@ const styles = ScaledSheet.create({
     },
     outlineStyle: {
         backgroundColor: Colors.transparent.clear,
-        borderWidth: '1@ms',
         borderColor: Colors.primary.brand,
         shadowOpacity: 0,
         elevation: 0,

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 
 import auth from '@react-native-firebase/auth';
 import { styles } from './styles';
 
-const LoginScreen: React.FC = () => {
+const LoginScreen: React.FC = ({ navigation }: any) => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     return (
@@ -13,7 +13,6 @@ const LoginScreen: React.FC = () => {
                 <Text style={styles.appName}>Healthcare</Text>
 
                 <View style={styles.inputContainer}>
-                    {/* <Icon name="email" size={20} color="#888" style={styles.inputIcon} /> */}
                     <TextInput
                         style={styles.input}
                         placeholder="Email ID"
@@ -23,7 +22,6 @@ const LoginScreen: React.FC = () => {
                 </View>
 
                 <View style={styles.inputContainer}>
-                    {/* <Icon name="lock" size={20} color="#888" style={styles.inputIcon} /> */}
                     <TextInput
                         style={styles.input}
                         placeholder="Password"
@@ -37,10 +35,12 @@ const LoginScreen: React.FC = () => {
 
                 <TouchableOpacity style={styles.loginButton} onPress={async () => {
                     const isUserLogin = await auth().signInWithEmailAndPassword(
-                        email,
-                        password,
+                        'test123@gmail.com',
+                        'Test@123',
                     );
-                    console.log('"in the email and password', email, password)
+                    console.log('oooo', email, password, isUserLogin)
+                    navigation.replace('Home');
+                    // navigation.REpl("Home")
                 }}>
                     <Text style={styles.loginButtonText}>LOGIN</Text>
                 </TouchableOpacity>

@@ -1,0 +1,1 @@
+export { HomScreen } from './view/HomScreen';
