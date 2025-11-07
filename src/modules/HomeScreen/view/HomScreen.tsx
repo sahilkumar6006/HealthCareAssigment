@@ -4,6 +4,7 @@ import { styles } from './style'
 import { HeaderTexts } from '../../../fixtures/HomScreen'
 import { Header } from '../../../components/Header'
 import { Label } from '../../../components/Label'
+import { Colors } from '../../../constants/theme'
 
 export const HomScreen = () => {
     return (
@@ -22,7 +23,7 @@ export const HomScreen = () => {
                     })
                 }
             </View>
-            <Label preset={'Header'}>UPLOAD PRESCRIPTION</Label>
+            <Label preset={'Header'} style={{color: Colors.black, alignSelf:'flex-start', marginStart: 20, fontWeight: '700'}}>UPLOAD PRESCRIPTION</Label>
 
         </View>
     )

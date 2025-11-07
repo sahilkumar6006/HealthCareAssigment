@@ -12,8 +12,6 @@ import BottomTab from './BottomTab';
 
 const Stack = createNativeStackNavigator();
 
-
-
 export const RootStack = () => {
     return (
         <NavigationContainer

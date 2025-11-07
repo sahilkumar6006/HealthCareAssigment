@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, Pressable, TextStyle } from 'react-native';
+import { Text, Pressable } from 'react-native';
+import type { TextStyle, TextProps, StyleProp } from 'react-native';
 import { Colors, FontSizes } from '../constants/theme';
 
 type LabelPresetStyle = {
@@ -49,24 +50,29 @@ const labelPresets: { [key: string]: LabelPresetStyle } = {
     },
 };
 
+type LabelProps = TextProps & {
+    text?: string;
+    onPress?: () => void;
+    linkText?: string;
+    preset?: keyof typeof labelPresets;
+    children?: React.ReactNode;
+    style?: StyleProp<TextStyle>;
+};
+
 export const Label = ({
     text,
     onPress,
     linkText,
     preset = 'default',
     children,
-}: {
-    text?: string;
-    onPress?: () => void;
-    linkText?: string;
-    preset?: keyof typeof labelPresets;
-    children?: React.ReactNode;
-}) => {
+    style,
+    ...rest
+}: LabelProps) => {
     const presetStyles = labelPresets[preset] ?? labelPresets.default;
     const content = text ?? children;
     return (
         <Pressable onPress={onPress}>
-            <Text style={presetStyles.textStyle}>
+            <Text {...rest} style={[presetStyles.textStyle, style]}>
                 {content}
                 {linkText && (
                     <Text style={presetStyles.linkTextStyle}> {linkText}</Text>
