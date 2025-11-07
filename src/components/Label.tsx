@@ -12,7 +12,7 @@ const labelPresets: { [key: string]: LabelPresetStyle } = {
     default: {
         textStyle: {
             fontSize: FontSizes.medium,
-            color: Colors.textSecondary,
+            color: Colors.black,
             fontWeight: '400',
             textAlign: 'center',
         },
