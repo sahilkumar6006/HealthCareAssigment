@@ -1,4 +1,4 @@
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export const device = Colors;
 
@@ -97,4 +97,20 @@ export const transparent = {
   clear: 'rgba(255, 255, 255, 0)',
   lightGray: applyOpacity(neutral.s300, 0.4),
   darkGray: applyOpacity(neutral.s800, 0.8),
+};
+
+
+export const AppColor = {
+  primary: '#5D9CEC',
+  secondary: '#4CDA64',
+  background: '#F8F8F8',
+  cardBackground: '#FFFFFF',
+  textPrimary: '#333333',
+  textSecondary: '#666666',
+  textLink: '#007AFF',
+  border: '#E0E0E0',
+  iconColor: '#8E8E93',
+  starYellow: '#FFC107',
+  white: '#FFFFFF',
+  black: '#000000',
 };
