@@ -47,7 +47,40 @@ const labelPresets: { [key: string]: LabelPresetStyle } = {
             color: Colors.textLink,
             fontWeight: '700',
         },
+
     },
+    largeHeader: {
+        textStyle: {
+            fontFamily: 'Baloo Thambi 2',
+            fontSize: 20,
+            lineHeight: 20,
+            letterSpacing: 0,
+            fontWeight: '700',
+            color: Colors.black,
+        },
+        linkTextStyle: {
+            color: Colors.textLink,
+            fontWeight: '700',
+        },
+    },
+
+    labelPreset: {
+        textStyle: {
+            fontFamily: 'Baloo Thambi 2',
+            fontWeight: '400',
+            fontSize: 20,
+            lineHeight: 20,
+            letterSpacing: 0,
+            textAlign: 'center',
+            color: Colors.black,
+            fontStyle: 'normal',
+        },
+        linkTextStyle: {
+            color: Colors.textLink,
+            fontWeight: '600',
+        },
+    }
+
 };
 
 type LabelProps = TextProps & {
