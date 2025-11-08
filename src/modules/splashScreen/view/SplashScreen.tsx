@@ -7,8 +7,6 @@ import { styles } from './style';
 
 const SplashScreen = ({ navigation }: any) => {
     const scaleAnim = useRef(new Animated.Value(0)).current;
-    const { user } = useAuth();
-    console.log('C', user);
 
     useEffect(() => {
         Animated.timing(scaleAnim, {
@@ -18,14 +16,10 @@ const SplashScreen = ({ navigation }: any) => {
             useNativeDriver: true,
         }).start(() => {
             setTimeout(() => {
-                if (user) {
-                    navigation.replace('Home');
-                } else {
-                    navigation.replace('LoginScreen');
-                }
+                navigation.replace('LoginScreen');
             }, 3000);
         });
-    }, [scaleAnim, navigation, user]);
+    }, [scaleAnim, navigation]);
 
     return (
         <View style={styles.container}>
