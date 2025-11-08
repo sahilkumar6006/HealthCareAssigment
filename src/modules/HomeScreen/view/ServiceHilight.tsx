@@ -1,14 +1,12 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Dimensions, StyleProp, ViewStyle } from 'react-native';
 
-// Get screen width for responsive sizing
 const { width } = Dimensions.get('window');
 
-// Define props for reusability
 interface ServiceHighlightCardProps {
     title: string;
     description: string;
-    imageSource: any; // Use ImageSourcePropType in a real app
+    imageSource: any;
     backgroundColor?: string;
     titleColor?: string;
     descriptionColor?: string;
@@ -19,7 +17,7 @@ export const ServiceHighlightCard: React.FC<ServiceHighlightCardProps> = ({
     title,
     description,
     imageSource,
-    backgroundColor = '#E6FFE6', // Light green default
+    backgroundColor = '#E6FFE6',
     titleColor = '#000000',
     descriptionColor = '#333333',
     style,
@@ -46,12 +44,12 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 15,
         margin: 10,
-        width: width * 0.9, // Responsive width
+        width: width * 0.9,
         alignItems: 'center',
         justifyContent: 'space-between',
     },
     textContainer: {
-        flex: 3, // Takes up more space than the image
+        flex: 3,
         paddingRight: 10,
     },
     title: {
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
         lineHeight: 18,
     },
     image: {
-        flex: 1, // Takes up less space than the text
+        flex: 1,
         width: 60,
         height: 100,
     },
