@@ -11,12 +11,10 @@ export const uploadToCloudinary = async (fileUriOrLink: any) => {
         const formData = new FormData();
         formData.append('upload_preset', UPLOAD_PRESET);
 
-        // Check if it's a local file URI (e.g., starts with file:// or content://)
         if (fileUriOrLink.startsWith('file://') || fileUriOrLink.startsWith('content://')) {
-            // It's a local file, prepare for multi-part form data upload
+
             const fileType = fileUriOrLink.split('.').pop()?.toLowerCase() || 'jpg';
 
-            // Determine proper MIME type
             let mimeType = 'image/jpeg';
             if (fileType === 'pdf') {
                 mimeType = 'application/pdf';
@@ -32,7 +30,6 @@ export const uploadToCloudinary = async (fileUriOrLink: any) => {
                 name: `prescription.${fileType}`,
             } as any);
         } else {
-            // It's a remote link, Cloudinary will fetch it directly
             formData.append('file', fileUriOrLink);
         }
 
