@@ -5,6 +5,11 @@ export const IMAGES = {
   UploadIcon: require('../assets/png/Upload.png'),
   FileIcon: require('../assets/png/file.png'),
   VitaminBC: require('../assets/png/VitaminBC.png'),
+  Questions: require('../assets/png/Question.png'),
+  Reminders: require('../assets/png/Remainders.png'),
+  Messages: require('../assets/png/Messages.png'),
+  Calendar: require('../assets/png/Calendar.png'),
+  AppIcon: require('../assets/png/AppIcon.png'),
 
 
 };

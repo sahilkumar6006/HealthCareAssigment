@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, Platform, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Platform, StatusBar, Image } from 'react-native';
 import { Label } from './Label';
 import { Colors } from '../constants/theme';
 import LoaderSvg from '../assets/svg/Loader';
 import Hambuger from '../assets/svg/Hambuger';
+import { IMAGES } from '../constants/image';
 
-export const Header = ({ title, loading }: { title: string; loading?: boolean }) => {
+export const Header = ({ title, loading, appIcon }: { title?: string; loading?: boolean, appIcon?: boolean }) => {
     return (
         <View style={styles.header}>
             <Hambuger />
-            <Label text={title} style={styles.title}/>
+            {appIcon && <Image source={IMAGES.AppIcon} style={styles.appIcon} resizeMode='contain' />}
+            <Label text={title} style={styles.title} />
             {loading ? (
                 <View style={styles.loaderOverlay}>
                     <LoaderSvg />
@@ -47,4 +49,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         zIndex: 10,
     },
+    appIcon: {
+        marginStart: 30,
+        width: 30,
+        height: 30,
+    }
 });

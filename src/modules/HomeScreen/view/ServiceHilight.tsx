@@ -30,6 +30,7 @@ export const ServiceHighlightCard: React.FC<ServiceHighlightCardProps> = ({
                 <Text style={[styles.title, { color: titleColor }]}>{title}</Text>
                 <Text style={[styles.description, { color: descriptionColor }]}>{description}</Text>
             </View>
+
             <Image
                 source={imageSource}
                 style={styles.image}
@@ -69,12 +70,3 @@ const styles = StyleSheet.create({
         height: 100,
     },
 });
-
-// Example Usage (assuming you have a local image)
-/*
-<ServiceHighlightCard 
-    title="Get the Best Medical Service"
-    description="Rem illum facere quo corporis Quia in saepe itaque ut quos pariatur."
-    imageSource={require('./assets/doctor.png')} 
-/>
-*/

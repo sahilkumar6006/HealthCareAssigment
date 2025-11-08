@@ -13,7 +13,6 @@ const BottomTab = () => {
     return (
         <Tab.Navigator screenOptions={{ headerShown: false }}>
             <Tab.Screen name="Home" component={HomScreen} />
-            <Tab.Screen name="Profile" component={HomScreen} />
             <Tab.Screen name='GetPharma' component={GetPharama} />
         </Tab.Navigator>
     )
