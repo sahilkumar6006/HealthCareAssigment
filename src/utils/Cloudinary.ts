@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const CLOUD_NAME = 'ddcdwo7ho'
-const UPLOAD_PRESET = 'test'
+const UPLOAD_PRESET = 'testpublic'
 const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`;
 
 
@@ -15,7 +15,7 @@ export const uploadToCloudinary = async (fileUriOrLink: any) => {
         if (fileUriOrLink.startsWith('file://') || fileUriOrLink.startsWith('content://')) {
             // It's a local file, prepare for multi-part form data upload
             const fileType = fileUriOrLink.split('.').pop()?.toLowerCase() || 'jpg';
-            
+
             // Determine proper MIME type
             let mimeType = 'image/jpeg';
             if (fileType === 'pdf') {
@@ -25,7 +25,7 @@ export const uploadToCloudinary = async (fileUriOrLink: any) => {
             } else if (fileType === 'jpg' || fileType === 'jpeg') {
                 mimeType = 'image/jpeg';
             }
-            
+
             formData.append('file', {
                 uri: fileUriOrLink,
                 type: mimeType,

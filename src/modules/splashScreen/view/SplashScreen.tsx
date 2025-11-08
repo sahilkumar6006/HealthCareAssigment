@@ -1,4 +1,3 @@
-// src/screens/SplashScreen.tsx
 import { StackScreenProps } from '@react-navigation/stack';
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated, Easing } from 'react-native';
@@ -24,7 +23,7 @@ const SplashScreen = ({ navigation }: any) => {
                 } else {
                     navigation.replace('LoginScreen');
                 }
-            }, 300);
+            }, 3000);
         });
     }, [scaleAnim, navigation, user]);
 
