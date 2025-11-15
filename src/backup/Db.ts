@@ -1,15 +1,13 @@
 import SQLite from 'react-native-sqlite-storage';
 
-// Set up the Promise API and enable debugging
 SQLite.enablePromise(true);
-// SQLite.DEBUG(true); // Uncomment this line to see detailed logs
 
 const databaseName = 'HealthCareDB.db';
 const databaseLocation = 'default';
 
 /**
  * Opens the database and returns the connection object.
- * @returns {Promise<SQLite.SQLiteDatabase>} The database connection object.
+ * @returns {Promise<SQLite.SQLiteDatabase>} 
  */
 export const getDBConnection = async () => {
     let db;
@@ -30,7 +28,7 @@ export const getDBConnection = async () => {
  * Creates the necessary tables for the application.
  * @param {SQLite.SQLiteDatabase} db The database connection object.
  */
-export const createTables = async (db) => {
+export const createTables = async (db: SQLite.SQLiteDatabase) => {
     const userTableQuery = `
     CREATE TABLE IF NOT EXISTS Users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -73,7 +71,7 @@ export const initializeDB = async () => {
 
 // --- Example CRUD Functions (Optional, but useful to have here) ---
 
-export const insertUser = async (db, name, email) => {
+export const insertUser = async (db: SQLite.SQLiteDatabase, name: string, email: string) => {
     const insertQuery = `INSERT INTO Users (name, email) VALUES (?, ?);`;
     const values = [name, email];
     try {
@@ -85,7 +83,7 @@ export const insertUser = async (db, name, email) => {
     }
 };
 
-export const getUsers = async (db) => {
+export const getUsers = async (db: SQLite.SQLiteDatabase) => {
     const selectQuery = 'SELECT id, name, email FROM Users;';
     try {
         const [results] = await db.executeSql(selectQuery);
