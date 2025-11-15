@@ -38,10 +38,21 @@
 
 
 import { View, Text, StatusBar } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import AssingmentBottomTab from './src/routes/AssingmentBottomTab'
+import { initializeDB } from './src/backup/Db'
 
 const App = () => {
+  useEffect(() => {
+    console.log("App Loaded")
+    try {
+      initializeDB();
+
+    } catch (error) {
+      console.error("Failed to initialize database:", error);
+    }
+
+  }, [])
   return (
     <View style={{ flex: 1, padding: 1 }}>
 

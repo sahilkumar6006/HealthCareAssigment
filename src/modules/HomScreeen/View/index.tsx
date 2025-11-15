@@ -1,12 +1,25 @@
 import { View, Text, StyleSheet, Image, ScrollView, FlatList } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import HeaderAssignment from '../../../components/HeaderAssignment'
 import { Tags } from '../../../fixtures/TagsFilter'
 import { IMAGES } from '../../../constants/image'
 import { PharamText } from '../../../fixtures/GetPharama'
+import { getDBConnection, getUsers, insertUser } from '../../../backup/Db'
 
 const AssingmentHomeScreen = () => {
     const selectedTag = Tags[0];
+
+    const getUserData = async () => {
+        const db = await getDBConnection();
+        const inserUser = await insertUser(db, 'John Doe', 'test123@gmail.com');
+
+        const users = await getUsers(db);
+        console.log('Users from DB:', users);
+    }
+
+    useEffect(() => {
+        getUserData();
+    }, []);
 
     return (
         <View style={styles.container}>

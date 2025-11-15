@@ -1,0 +1,26 @@
+diff --git a/node_modules/react-native-sqlite-storage/platforms/android/build.gradle b/node_modules/react-native-sqlite-storage/platforms/android/build.gradle
+index ff79b10..7557f77 100644
+--- a/node_modules/react-native-sqlite-storage/platforms/android/build.gradle
++++ b/node_modules/react-native-sqlite-storage/platforms/android/build.gradle
+@@ -1,7 +1,7 @@
+ buildscript {
+     repositories {
+         google()
+-        jcenter()
++      mavenCentral()
+     }
+ 
+     dependencies {
+diff --git a/node_modules/react-native-sqlite-storage/react-native.config.js b/node_modules/react-native-sqlite-storage/react-native.config.js
+index dc150a9..4bbf505 100644
+--- a/node_modules/react-native-sqlite-storage/react-native.config.js
++++ b/node_modules/react-native-sqlite-storage/react-native.config.js
+@@ -2,7 +2,7 @@ module.exports = {
+ 	dependency: {
+ 		platforms: {
+ 			ios: {
+-				project: './platforms/ios/SQLite.xcodeproj'
++				
+ 			},
+ 			android: {
+ 				sourceDir: './platforms/android'
