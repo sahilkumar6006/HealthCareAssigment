@@ -3,26 +3,30 @@ import { IMAGES } from "../constants/image";
 export const PharamText = [
     {
         id: 1,
-        name: 'Path lab pharmacy',
-        image: IMAGES.pharmacy,
+        name: 'Turtleneck Sweater ',
+        price: '$19.99',
+        image: IMAGES.GirlImage,
         distance: "5km Away",
+
         Rating: 4.5,
         Reviews: 120
     },
     {
         id: 2,
-        name: "24 pharmacy",
-        image: IMAGES.pharama2,
+        name: 'Turtleneck Sweater ',
+        price: '$19.99',
         distance: "5km Away",
+        image: IMAGES.GirlImage,
         Rating: 4.5,
         Reviews: 120
     },
 
     {
         id: 4,
-        name: "24 pharmacy",
-        image: IMAGES.pharmacy,
+        name: 'Turtleneck Sweater ',
+        price: '$19.99',
         distance: "5km Away",
+        image: IMAGES.GirlImage,
         Rating: 4.5,
         Reviews: 120
     },

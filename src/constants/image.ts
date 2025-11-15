@@ -10,7 +10,14 @@ export const IMAGES = {
   Messages: require('../assets/png/Messages.png'),
   Calendar: require('../assets/png/Calendar.png'),
   AppIcon: require('../assets/png/AppIcon.png'),
-
+  HamBurger: require('../assets/png/HamBurger.png'),
+  Bell_pin: require('../assets/png/Bell_pin.png'),
+  BackgroundImage: require('../assets/png/BackgroundImage.png'),
+  key: require('../assets/png/key.png'),
+  men: require('../assets/png/men.png'),
+  glasses: require('../assets/png/glasses.png'),
+  screwdriver: require('../assets/png/screwdriver.png'),
+  GirlImage: require('../assets/png/GirlImage.png'),
 
 };
 
